@@ -1,74 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tabel</title>
-	<style>
-		table{
- 				 border: 2px solid black;
-  				 border-collapse: collapse;
-  				
-}
-		th,td{
-			padding: 10px;
-			 border: 0.5px black solid;
-  			 border-collapse: collapse;
+	<title>Rekap</title>
+	<style type="text/css">
+		body{
+			background-color: black;
+		}
+		.dan table{
+			background-color: #2d7d6387;
+		}
+		h1{
+			color: white;
+		}
+		.tombol{
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+
+		}
+
+		.tombol1{
+			background-color:lightgrey;
+
+		}
+		a{
+			text-decoration: none;
+			font-weight: 2px;
+			color: black;
+			
+
 		}
 	</style>
 </head>
 <body>
-	<table>
-		<tbody>
-		<thead>
-		<caption><h1>Harga Pulsa</h1>
-		</caption>
-		<tr bgcolor="green">
-			<th rowspan="2">Isi Ulang Pulsa</th>
-			<th colspan="2">Paket Pulsa</th>
-			<th rowspan="2">Masa Atif Pulsa<br>Telpon</th>
-		</tr>
-	</thead>
-		<tr bgcolor="green">
-			<td>Pulsa Utama</td>
-			<td>Pulsa Telpon</td>
-		</tr>
-		<tr>
-			<td>Rp.50.000</td>
-			<td>Rp.50.000</td>
-			<td>Rp.50.000</td>
-			<td>7 Hari</td>
-		</tr>
-		<tr>
-			<td>Rp.100.000</td>
-			<td>Rp.100.000</td>
-			<td>Rp.100.000</td>
-			<td>7 Hari</td>
-		</tr>
-		<tr>
-			<td>Rp.150.000</td>
-			<td>Rp.150.000</td>
-			<td>Rp.150.000</td>
-			<td>7 Hari</td>
-		</tr>
-		<tr>
-			<td>Rp.200.000</td>
-			<td>Rp.200.000</td>
-			<td>Rp.200.000</td>
-			<td>7 Hari</td>
-		</tr>
-		<tr>
-			<td>Rp.250.000</td>
-			<td>Rp.250.000</td>
-			<td>Rp.250.000</td>
-			<td>7 Hari</td>
-		</tr>
-		<tr>
-			<td>Rp.300.000</td>
-			<td>Rp.300.000</td>
-			<td>Rp.300.000</td>
-			<td>7 Hari</td>
-		</tr>
-
-		</tbody>
-	</table>
+	<h1 align="center">Rekap Pembelian Pulsa</h1>
+	<div class="dan">
+		<table width="100%" border="1">
+			<tr>
+				<th>Nama Lengkap</th>
+				<th>No Telepon</th>
+				<th>Paket</th>
+				<th>Metode Pembayaran</th>
+			</tr>
+			<?php 
+				echo "<head><title>evaluasi</head></title>";
+				$fp = fopen("data.txt", "r");
+			?>
+			<?php while ($isi = fgets($fp,100)) 
+			{
+				$pisah = explode ("|", $isi);
+				?>
+				<tr>
+					<th><?php echo"$pisah[0]"; ?></th>
+					<th><?php echo"$pisah[1]"; ?></th>
+					<th><?php echo"$pisah[2]"; ?></th>
+					<th><?php echo"$pisah[3]"; ?></th>
+				</tr>
+			<?php } ?>
+		</table>
+		<center><button class="tombol"><a align="center" href="form.php">Kembali</a></center>
+	</div>
 </body>
 </html>
